@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fangdean.goodsserver.mapper.CategoryMapper">
+
+    <insert id="insert">
+        insert into category(id, parent_id, user_id, name, order_num, update_time)
+        values(#{id},#{parentId},#{userId},#{name},#{orderNum},#{updateTime})
+    </insert>
+
+    <select id="selectOne" resultType="category">
+        select * from category where  user_id = #{userId} and parent_id = #{parentId} and id = #{id}
+    </select>
+
+    <update id="update">
+        update category
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="orderNum != null and orderNum != 0">
+                order_num = #{orderNum},
+            </if>
+            <if test="updateTime != null and updateTime != 0">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where user_id = #{userId} and parent_id = #{parentId} and id = #{id}
+    </update>
+
+    <select id="select" resultType="category">
+        select * from category
+        where user_id = #{userId}
+    </select>
+
+</mapper>
