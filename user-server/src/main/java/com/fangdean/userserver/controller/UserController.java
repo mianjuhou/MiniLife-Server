@@ -22,7 +22,7 @@ public class UserController {
         if (user != null) {
             return new ResponseBean(user, 1, "登录成功");
         } else {
-            return new ResponseBean("", 0, "登录失败");
+            return new ResponseBean(new User(), 0, "登录失败");
         }
     }
 

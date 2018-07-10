@@ -8,7 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-server" />
         <module name="goods-server" />
-        <module name="MiniLife" />
+        <module name="MiniLife-Server" />
         <module name="user-server" />
         <module name="web-server" />
         <module name="zuul-server" />
